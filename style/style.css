@@ -1,0 +1,525 @@
+/* From Uiverse.io by devestter */
+.resume-download .button {
+    padding: 12px 19px;
+    border: none;
+    color: rgb(16, 52, 170);
+    cursor: pointer;
+    background-color: rgb(190, 219, 253);
+    border-radius: 7px;
+    font-weight: bold;
+    transition: 0.5s;
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    font-size: 13px;
+    box-shadow: rgba(150, 143, 143, 0.2) 0px 2px 8px 0px;
+}
+
+.resume-download .button:hover {
+    background-color: rgb(164, 206, 253);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.resume-download .saveicon {
+    width: 17px;
+}
+
+/* You can add any styles specific to the parent container here if needed: */
+/*
+.resume-download {
+  // e.g., margin, alignment, etc.
+}
+*/
+
+.projects {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* === Project Card === */
+.project-card {
+    width: 360px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, .1);
+    transition: .3s;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 20px auto;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .15);
+}
+
+/* Image section */
+.project-card .tilt {
+    overflow: hidden;
+}
+
+.project-card .info {
+    padding: 10px;
+}
+
+.project-card .img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.project-card .img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s;
+}
+
+.project-card:hover .img img {
+    transform: scale(1.05);
+}
+
+/* Info section */
+.project-card.info {
+    padding: 20px;
+}
+
+.project-card .cat {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #71717A;
+    margin-bottom: 5px;
+}
+
+.project-card .title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #18181B;
+    margin: 0 0 10px;
+    letter-spacing: -0.5px;
+}
+
+.project-card .desc {
+    font-size: 13px;
+    color: #52525B;
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+    .project-card {
+        width: 90%;
+    }
+
+    .project-card .title {
+        font-size: 16px;
+    }
+
+    .project-card .img {
+        height: 180px;
+    }
+}
+
+/* Skill section */
+
+/* The main section container */
+.skills-section {
+    width: 100%;
+    padding: 50px 30px;
+    border-radius: 12px;
+}
+
+/* Section Title */
+.section-title {
+    color: #f5f5f5;
+    font-size: 2.2em;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Container for all skill rows */
+.skills-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the rows horizontally */
+    gap: 35px; /* Space between each row */
+}
+
+/* Styles for each row of logos */
+.skill-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap; /* Allows logos to wrap on smaller screens */
+    gap: 60px; /* Space between logos in a row */
+}
+
+/* --- LOGO STYLES --- */
+
+/* Base style for all logo wrappers */
+.skill-logo {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.skill-logo:hover {
+    transform: translateY(-5px);
+}
+
+/* The image itself within the wrapper */
+.skill-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Style for logos with no background frame */
+.skill-logo.no-bg {
+    padding: 0;
+    width: auto; /* Let the image define the width */
+    height: 85px; /* Maintain vertical alignment */
+}
+
+/* Style for logos with a rounded square frame */
+.skill-logo.rounded-square {
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Style for logos with a circular frame */
+.skill-logo.circle {
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+/* Specific fix for the GitHub logo (SVG) */
+.github-logo img {
+    /* The SVG is black by default, this inverts it to white */
+    filter: invert(1);
+}
+
+/* gallery section style  */
+
+/* The main wrapper for the gallery section.
+   Styles for centering and background, previously on the body, are now here. */
+.portfolio-gallery {
+    min-height: 100vh;
+    background: #000;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10vmin; /* Replaces margin on container for better spacing */
+}
+
+/* The flex container for the cards, with the skew effect. */
+.portfolio-gallery .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+    transform: skew(5deg);
+}
+
+/* Individual card styling. */
+.portfolio-gallery .card {
+    flex: 1;
+    height: 75vmin;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+/* Add margin to all cards except the last one for spacing. */
+.portfolio-gallery .card:not(:last-child) {
+    margin-right: 1em;
+}
+
+/* Image styling. Starts as grayscale. */
+.portfolio-gallery .card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 1s ease-in-out;
+    filter: grayscale(100%);
+}
+
+/* Hover effect: The card grows significantly. */
+.portfolio-gallery .card:hover {
+    flex-grow: 10;
+}
+
+/* Hover effect: The image inside the hovered card returns to full color. */
+.portfolio-gallery .card:hover img {
+    filter: grayscale(0);
+}
+
+/* contact page style */
+
+.contact-section *,
+.contact-section *::before,
+.contact-section *::after {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.contact-section {
+    background: #0d0d0d;
+    color: #ddd;
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: 1.2px;
+    padding: 40px 0;
+}
+
+.contact-section .background {
+    display: flex;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #121212 0%, #1e1e1e 100%);
+}
+
+.contact-section .container {
+    flex: 0 1 700px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contact-section .screen {
+    position: relative;
+    background: #1c1c1c;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.contact-section .screen-body {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.contact-section .screen-body-item {
+    flex: 1;
+    padding: 50px;
+}
+
+.contact-section .screen-body-item.left {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-section .app-title {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.contact-section .app-title:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 3px;
+    background: #ffffff;
+    border-radius: 2px;
+}
+
+.contact-section .app-contact {
+    margin-top: auto;
+    font-size: 10px;
+    color: #aaa;
+}
+
+.contact-section .app-form-group {
+    margin-bottom: 18px;
+}
+
+.contact-section .app-form-control {
+    width: 100%;
+    padding: 12px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #444;
+    color: #ddd;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contact-section .app-form-control::placeholder {
+    color: #555;
+}
+
+.contact-section .app-form-control:focus {
+    border-bottom-color: #ffffff;
+}
+
+.contact-section .app-form-group.message {
+    margin-top: 40px;
+}
+
+.contact-section .app-form-group.buttons {
+    text-align: right;
+}
+
+.contact-section .app-form-button {
+    background: none;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 8px 18px;
+    margin-left: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.contact-section .app-form-button:hover {
+    background: #ffffff;
+    color: #fff;
+}
+
+@media (max-width: 600px) {
+    .contact-section .screen-body {
+        flex-direction: column;
+    }
+
+    .contact-section .screen-body-item {
+        padding: 20px;
+    }
+
+    .contact-section .app-title {
+        font-size: 22px;
+    }
+}
+
+
+/* footer style*/
+
+.portfolio-footer-section .footer-container {
+    background: white;
+    border-radius: 24px 24px 0 0;
+    padding: 20px 40px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    position: relative;
+}
+
+.portfolio-footer-section .handshake-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 30px;
+    background: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+}
+
+.portfolio-footer-section .footer-title {
+    font-size: 48px;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
+
+.portfolio-footer-section .cta-buttons {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    /*margin-bottom: 60px;*/
+}
+
+.portfolio-footer-section .btn {
+    padding: 14px 32px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.portfolio-footer-section .btn-primary {
+    background: #1a1a1a;
+    color: white;
+}
+
+.portfolio-footer-section .btn-primary:hover {
+    background: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-footer-section .btn-secondary {
+    background: transparent;
+    color: #1a1a1a;
+    border: 2px solid #e0e0e0;
+}
+
+.portfolio-footer-section .btn-secondary:hover {
+    border-color: #1a1a1a;
+    transform: translateY(-2px);
+}
+
+.portfolio-footer-section .footer-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 40px;
+    /*border-top: 1px solid #e8e8e8;*/
+    font-size: 14px;
+    color: #999;
+}
+
+.portfolio-footer-section .copyright {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .portfolio-footer-section .footer-container {
+        padding: 60px 30px;
+    }
+
+    .portfolio-footer-section .footer-title {
+        font-size: 36px;
+    }
+
+    .portfolio-footer-section .cta-buttons {
+        flex-direction: column;
+    }
+
+    .portfolio-footer-section .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .portfolio-footer-section .footer-meta {
+        flex-direction: column;
+        gap: 20px;
+        text-align: center;
+    }
+
+}

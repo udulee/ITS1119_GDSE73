@@ -2,12 +2,491 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udulee Nayanamali - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style/style.css">
+    <style>
+        /* Apply a basic reset and box-sizing */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #fff;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: #4a9eff;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #4a9eff;
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 80px 100px;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 60px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-style: italic;
+            line-height: 1.2;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #fff 0%, #a0c4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #d0d0d0;
+            margin-bottom: 40px;
+        }
+
+        .hero-content p strong {
+            color: #fff;
+        }
+
+        /* Social Icons */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .social-icons a {
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 22px;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-icons a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .social-icons a:hover::before {
+            transform: translateY(0);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+        }
+
+        .facebook {
+            background: #1877f2;
+            color: #fff;
+        }
+
+        .whatsapp {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .gmail {
+            background: #ea4335;
+            color: #fff;
+        }
+
+        .github {
+            background: #333;
+            color: #fff;
+        }
+
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            color: #fff;
+        }
+
+        .tiktok {
+            background: #000;
+            color: #fff;
+        }
+
+        /* Profile Image */
+        .hero-image {
+            flex: 0 0 400px;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 50%;
+            border: 8px solid rgba(74, 158, 255, 0.3);
+            box-shadow: 0 20px 60px rgba(74, 158, 255, 0.4);
+            transition: transform 0.3s;
+        }
+
+        .hero-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Decorative Elements */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(74, 158, 255, 0.15) 0%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero {
+                padding: 60px 50px;
+                gap: 40px;
+            }
+
+            .hero-image {
+                flex: 0 0 300px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            nav ul {
+                gap: 20px;
+                font-size: 14px;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                padding: 40px 30px;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-image {
+                flex: 0 0 250px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-<h1>udulee nayanamali</h1>
-<p>
-    Lasddfseyusgfusfjhjdhfjhdsh
-</p>
+<nav>
+    <ul>
+        <li><a href="#hero">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#Projects">Project</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#programs">Programs</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero" id="hero">
+    <div class="hero-content">
+        <h1>Hellow! I'm Udulee Nayanamali</h1>
+        <p>
+            <strong>A passionate developer specializing in modern, user-friendly web applications using React and
+                Node.js.</strong> Focused on simplicity, functionality, and clean design. Experienced in creating
+            projects like real-time chat apps and pet care management platforms, combining intuitive interfaces with
+            efficient backend systems.
+        </p>
+        <div class="social-icons">
+            <a href="#" class="facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="http://wa.me/+94741472514" class="whatsapp" aria-label="WhatsApp"><i
+                    class="fab fa-whatsapp"></i></a>
+            <a href="http://www.uduleenayanamalee.lk" class="gmail" aria-label="Gmail"><i class="far fa-envelope"></i></a>
+            <a href="https://github.com/udulee" target="_blank" class="github" aria-label="GitHub"><i
+                    class="fab fa-github"></i></a>
+            <!--            <a href="#" class="instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>-->
+            <a href="#" class="tiktok" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <div class="resume-download">
+                <button class="button">
+                    <svg class="saveicon" stroke="currentColor" stroke-width="1.7" viewBox="0 0 24 24" fill="none"
+                         xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5m8.25 3v6.75m0 0l-3-3m3 3l3-3M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
+                              stroke-linejoin="round" stroke-linecap="round"></path>
+                    </svg>
+                    download
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="hero-image">
+        <img src="images/heroImage.jpg" alt="Udulee Nayanamali">
+    </div>
+</section>
+
+<section id="Projects">
+    <h2 style="padding-left: 20px;">projects</h2>
+    <div class="projects">
+        <div class="project-card">
+            <div class="tilt">
+                <div class="img">
+                    <img src="images/image01.jpeg">
+
+                </div>
+            </div>
+            <div class="info">
+                <h2 class="title"> Mushroom farming & selling</h2>
+                <p class="desc">This project is focused on developing
+                    a comprehensive system for managing
+                    the operations of a mushroom cultivation
+                    company. The main goal is to streamline the
+                    company’s processes and improve efficiency,
+                    especially within its science laboratory and
+                    production management.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects">
+        <div class="project-card">
+            <div class="tilt">
+                <div class="img">
+                    <img src="images/image01.jpeg">
+                </div>
+            </div>
+            <div class="info">
+                <h2 class="title"> Mushroom farming & selling</h2>
+                <p class="desc">This project is focused on developing
+                    a comprehensive system for managing
+                    the operations of a mushroom cultivation
+                    company. The main goal is to streamline the
+                    company’s processes and improve efficiency,
+                    especially within its science laboratory and
+                    production management.</p>
+            </div>
+        </div>
+    </div>
+    <div class="projects">
+        <div class="project-card">
+            <div class="tilt">
+                <div class="img">
+                    <img src="images/image01.jpeg"
+                         alt="Premium Laptop">
+                </div>
+            </div>
+            <div class="info">
+                <h2 class="title"> Mushroom farming & selling</h2>
+                <p class="desc">This project is focused on developing
+                    a comprehensive system for managing
+                    the operations of a mushroom cultivation
+                    company. The main goal is to streamline the
+                    company’s processes and improve efficiency,
+                    especially within its science laboratory and
+                    production management.</p>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="skills-section" id="skills">
+    <h2 class="section-title">Skill</h2>
+
+    <div class="skills-container">
+        <div class="skill-row">
+            <div class="skill-logo no-bg">
+                <img src="https://i.ibb.co/pwnLz6b/Java-FX-logo.png" alt="JavaFX Logo">
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-logo rounded-square">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png"
+                     alt="JavaScript Logo">
+            </div>
+            <div class="skill-logo rounded-square">
+                <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java Logo">
+            </div>
+            <div class="skill-logo no-bg">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg" alt="Figma Logo">
+            </div>
+        </div>
+
+        <div class="skill-row">
+            <div class="skill-logo circle">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/61/HTML5_logo_and_wordmark.svg"
+                     alt="HTML5 Logo">
+            </div>
+            <div class="skill-logo circle">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg"
+                     alt="CSS3 Logo">
+            </div>
+            <div class="skill-logo circle">
+                <img src="https://cdn.jsdelivr.net/npm/simple-icons@v13/icons/github.svg" alt="GitHub Logo">
+            </div>
+            <div class="skill-logo ">
+                <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL Logo">
+            </div>
+        </div>
+    </div>
+</section>
+
+<h2 class="section-title">Gallery</h2>
+
+<section class="portfolio-gallery" id="gallery">
+    <div class="container">
+        <div class="card">
+            <img src="images/pic01.jpg">
+            <!--                 alt="A cat looking sideways with a plotting expression">-->
+        </div>
+        <div class="card">
+            <img src="images/pic02.jpg">
+        </div>
+        <div class="card">
+            <img src="images/pic03.jpg">
+        </div>
+        <div class="card">
+            <img src="images/pic04.jpg">
+        </div>
+        <div class="card">
+            <img src="images/pic05.jpg">
+        </div>
+    </div>
+</section>
+
+<section class="contact-section" id="contact">
+    <div class="background">
+        <div class="container">
+            <div class="screen">
+                <div class="screen-body">
+                    <div class="screen-body-item left">
+                        <div class="app-title">
+                            <span>CONTACT</span>
+                            <span>US</span>
+                        </div>
+                        <div class="app-contact">CONTACT INFO : +94 74 1472 514</div>
+                    </div>
+                    <div class="screen-body-item">
+                        <div class="app-form">
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="NAME" value="udulee nayanamali">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="EMAIL">
+                            </div>
+                            <div class="app-form-group">
+                                <input class="app-form-control" placeholder="CONTACT NO">
+                            </div>
+                            <div class="app-form-group message">
+                                <input class="app-form-control" placeholder="MESSAGE">
+                            </div>
+                            <div class="app-form-group buttons">
+                                <button class="app-form-button">CANCEL</button>
+                                <button class="app-form-button">SEND</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="portfolio-footer-section">
+    <div class="footer-container">
+        <div class="handshake-icon">
+            🤝
+        </div>
+
+        <h2 class="footer-title">Tell me about your next<br>project</h2>
+
+        <div class="cta-buttons">
+            <button class="btn btn-primary">
+                ✉️ Email Me
+            </button>
+            <button class="btn btn-secondary">
+                WhatsApp
+            </button>
+        </div>
+
+    </div>
+</section>
+
 </body>
 </html>
